@@ -9,5 +9,5 @@ def remove_char_at(str, n):
             count += 1
             continue
         str_copy += str[count]
-        count +=1
+        count += 1
     return str_copy
