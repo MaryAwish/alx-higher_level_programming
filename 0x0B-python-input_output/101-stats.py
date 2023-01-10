@@ -36,7 +36,7 @@ try:
 
             if str(status) in status_codes.keys():
                 status_codes[str(status)] += 1
-        except IndexError:
+        except (IndexError, ValueError):
             pass
 
         try:
