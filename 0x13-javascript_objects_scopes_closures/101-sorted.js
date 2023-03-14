@@ -1,13 +1,17 @@
 #!/usr/bin/node
-
 const dict = require('./101-data').dict;
+
+const totalist = Object.entries(dict);
+const vals = Object.values(dict);
+const valsUniq = [...new Set(vals)];
 const newDict = {};
-
-Object.keys(dict).map(function (key) {
-  if (!Array.isArray(newDict[dict[key]])) {
-    newDict[dict[key]] = [];
+for (const j in valsUniq) {
+  const list = [];
+  for (const k in totalist) {
+    if (totalist[k][1] === valsUniq[j]) {
+      list.unshift(totalist[k][0]);
+    }
   }
-  newDict[dict[key]].push(key);
-});
-
+  newDict[valsUniq[j]] = list;
+}
 console.log(newDict);
